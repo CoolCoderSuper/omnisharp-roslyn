@@ -139,7 +139,7 @@ namespace TestUtility
         public IEnumerable<ProjectId> AddFilesToWorkspace(string folderPath, params TestFile[] testFiles)
         {
             folderPath = folderPath ?? Directory.GetCurrentDirectory();
-            var projects = TestHelpers.AddProjectToWorkspace(
+            var csProjects = TestHelpers.AddProjectToWorkspace(
                 Workspace,
                 Path.Combine(folderPath, "project.csproj"),
                 new[] { "net472" },
@@ -148,12 +148,19 @@ namespace TestUtility
                     && !f.FileName.EndsWith(".csx", StringComparison.OrdinalIgnoreCase)
                     && !f.FileName.EndsWith(".cake", StringComparison.OrdinalIgnoreCase)).ToArray());
 
+            var vbProjects = TestHelpers.AddProjectToWorkspace(
+                Workspace,
+                Path.Combine(folderPath, "project.vbproj"),
+                new[] { "net472" },
+                testFiles.Where(f => f.FileName.EndsWith(".vb", StringComparison.OrdinalIgnoreCase)).ToArray(),
+                languageName: LanguageNames.VisualBasic);
+
             foreach (var csxFile in testFiles.Where(f => f.FileName.EndsWith(".csx", StringComparison.OrdinalIgnoreCase)))
             {
                 TestHelpers.AddCsxProjectToWorkspace(Workspace, csxFile);
             }
 
-            return projects;
+            return csProjects.Concat(vbProjects);
         }
 
         public void ClearWorkspace()

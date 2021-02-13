@@ -6,5 +6,6 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("OmniSharp.MSBuild" + OmniSharpPublicKey.Key)]
 [assembly: InternalsVisibleTo("OmniSharp.Roslyn" + OmniSharpPublicKey.Key)]
 [assembly: InternalsVisibleTo("OmniSharp.Roslyn.CSharp" + OmniSharpPublicKey.Key)]
+[assembly: InternalsVisibleTo("OmniSharp.Roslyn.VisualBasic" + OmniSharpPublicKey.Key)]
 [assembly: InternalsVisibleTo("OmniSharp.DotNetTest.Tests" + OmniSharpPublicKey.Key)]
 [assembly: InternalsVisibleTo("OmniSharp.Tests" + OmniSharpPublicKey.Key)]

@@ -46,7 +46,7 @@ namespace TestUtility
             workspace.AddDocument(documentInfo);
         }
 
-        public static IEnumerable<ProjectId> AddProjectToWorkspace(OmniSharpWorkspace workspace, string filePath, string[] frameworks, TestFile[] testFiles, TestFile[] otherFiles = null, ImmutableArray<AnalyzerReference> analyzerRefs = default)
+        public static IEnumerable<ProjectId> AddProjectToWorkspace(OmniSharpWorkspace workspace, string filePath, string[] frameworks, TestFile[] testFiles, ImmutableArray<AnalyzerReference> analyzerRefs = default, string languageName = LanguageNames.CSharp)
         {
             otherFiles ??= Array.Empty<TestFile>();
 
@@ -72,7 +72,7 @@ namespace TestUtility
                     version: versionStamp,
                     name: "OmniSharp+" + framework,
                     assemblyName: "AssemblyName",
-                    language: LanguageNames.CSharp,
+                    language: languageName,
                     filePath: filePath,
                     metadataReferences: references,
                     analyzerReferences: analyzerRefs)

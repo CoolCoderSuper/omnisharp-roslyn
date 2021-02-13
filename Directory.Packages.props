@@ -44,6 +44,11 @@
         <PackageVersion Include="Microsoft.CodeAnalysis.ExternalAccess.OmniSharp" Version="$(RoslynPackageVersion)" />
         <PackageVersion Include="Microsoft.CodeAnalysis.ExternalAccess.OmniSharp.CSharp" Version="$(RoslynPackageVersion)" />
 
+	<PackageVersion Update="Microsoft.CodeAnalysis.VisualBasic" Version="$(RoslynPackageVersion)" />
+    	<PackageVersion Update="Microsoft.CodeAnalysis.VisualBasic.Features" Version="$(RoslynPackageVersion)" />
+	<PackageVersion Update="Microsoft.CodeAnalysis.VisualBasic.Scripting" Version="$(RoslynPackageVersion)" />
+	<PackageVersion Update="Microsoft.CodeAnalysis.VisualBasic.Workspaces" Version="$(RoslynPackageVersion)" />
+
         <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="$(MicrosoftExtensionPackageVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Configuration" Version="$(MicrosoftExtensionPackageVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="$(MicrosoftExtensionPackageVersion)" />
